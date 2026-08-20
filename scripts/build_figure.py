@@ -16,9 +16,9 @@ PLOT_WIDTH = WIDTH - LEFT - RIGHT
 MINIMUM = -10
 MAXIMUM = 80
 ROUTES = [
-    ("gpt", "GPT 5.6 Sol", "#79aaa6"),
-    ("deepseek", "DeepSeek V4 Pro", "#d78460"),
-    ("gemini-pro", "Gemini 3.1 Pro High", "#a596c2"),
+    ("gpt", "GPT 5.6 Sol", "#267c83"),
+    ("deepseek", "DeepSeek V4 Pro", "#ad492c"),
+    ("gemini-pro", "Gemini 3.1 Pro High", "#7456a5"),
 ]
 ITEM_LABELS = {
     "approval_voting_strategy": "Approval voting strategy",
@@ -43,20 +43,20 @@ def main() -> None:
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img" aria-labelledby="title desc">',
         '<title id="title">Belief span for each public LMCA critique</title>',
         '<desc id="desc">GPT and DeepSeek have positive score shifts on all five critiques. Gemini Pro has two positive, two zero, and one negative shift.</desc>',
-        '<style>.point{cursor:help}.point circle{stroke:#0b0b0a;stroke-width:2}.tooltip{opacity:0;pointer-events:none}.point:hover .tooltip,.point:focus .tooltip{opacity:1}.point:focus{outline:none}.point:hover circle,.point:focus circle{stroke:#e0e0e0;stroke-width:2.5}</style>',
-        '<rect width="100%" height="100%" fill="#0b0b0a"/>',
-        '<text x="32" y="38" font-family="system-ui, sans-serif" font-size="21" font-weight="650" fill="#e0e0e0">Same critique, different user position</text>',
-        '<text x="32" y="61" font-family="system-ui, sans-serif" font-size="13" fill="#a69987">Each dot is good score minus bad score. Diamond is the route mean.</text>',
+        '<style>.point{cursor:help}.point circle{stroke:#faf9f5;stroke-width:2}.tooltip{opacity:0;pointer-events:none}.point:hover .tooltip,.point:focus .tooltip{opacity:1}.point:focus{outline:none}.point:hover circle,.point:focus circle{stroke:#141413;stroke-width:2.5}</style>',
+        '<rect width="100%" height="100%" fill="#faf9f5"/>',
+        '<text x="32" y="38" font-family="system-ui, sans-serif" font-size="21" font-weight="700" fill="#141413">Same critique, different user position</text>',
+        '<text x="32" y="61" font-family="Georgia, serif" font-size="13" fill="#68665f">Each dot is good score minus bad score. Diamond is the route mean.</text>',
     ]
     for tick in range(-10, 81, 10):
         coordinate = x(tick)
-        color = "#8a7d6a" if tick == 0 else "#30291d"
+        color = "#6f6c65" if tick == 0 else "#dedbd2"
         width = 1.5 if tick == 0 else 1
         lines.append(
             f'<line x1="{coordinate:.1f}" y1="{TOP}" x2="{coordinate:.1f}" y2="326" stroke="{color}" stroke-width="{width}"/>'
         )
         lines.append(
-            f'<text x="{coordinate:.1f}" y="350" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a69987">{tick}</text>'
+            f'<text x="{coordinate:.1f}" y="350" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#68665f">{tick}</text>'
         )
 
     for index, (route, label, color) in enumerate(ROUTES):
@@ -65,7 +65,7 @@ def main() -> None:
         spans = [int(row["belief_span"]) for row in values]
         mean = statistics.fmean(spans)
         lines.append(
-            f'<text x="32" y="{center + 5}" font-family="system-ui, sans-serif" font-size="15" font-weight="650" fill="#e0e0e0">{html.escape(label)}</text>'
+            f'<text x="32" y="{center + 5}" font-family="system-ui, sans-serif" font-size="15" font-weight="650" fill="#141413">{html.escape(label)}</text>'
         )
         lines.append(
             f'<line x1="{x(min(spans)):.1f}" y1="{center}" x2="{x(max(spans)):.1f}" y2="{center}" stroke="{color}" stroke-opacity="0.35" stroke-width="3"/>'
@@ -90,18 +90,18 @@ def main() -> None:
             )
             if len(point_rows) > 1:
                 lines.append(
-                    f'<text x="{coordinate:.1f}" y="{center + 3.5}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#0b0b0a" pointer-events="none">{len(point_rows)}</text>'
+                    f'<text x="{coordinate:.1f}" y="{center + 3.5}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#faf9f5" pointer-events="none">{len(point_rows)}</text>'
                 )
             lines.append('<g class="tooltip">')
             lines.append(
-                f'<rect x="{tooltip_x:.1f}" y="{tooltip_y:.1f}" width="{tooltip_width}" height="{tooltip_height}" rx="2" fill="#e8dcc0"/>'
+                f'<rect x="{tooltip_x:.1f}" y="{tooltip_y:.1f}" width="{tooltip_width}" height="{tooltip_height}" rx="3" fill="#141413"/>'
             )
             lines.append(
-                f'<text x="{tooltip_x + 11:.1f}" y="{tooltip_y + 18:.1f}" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#171411">Belief span {value:+d}</text>'
+                f'<text x="{tooltip_x + 11:.1f}" y="{tooltip_y + 18:.1f}" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#faf9f5">Belief span {value:+d}</text>'
             )
             for line_index, item_name in enumerate(item_names):
                 lines.append(
-                    f'<text x="{tooltip_x + 11:.1f}" y="{tooltip_y + 36 + line_index * 17:.1f}" font-family="system-ui, sans-serif" font-size="11" fill="#25221e">{html.escape(item_name)}</text>'
+                    f'<text x="{tooltip_x + 11:.1f}" y="{tooltip_y + 36 + line_index * 17:.1f}" font-family="system-ui, sans-serif" font-size="11" fill="#e6e3da">{html.escape(item_name)}</text>'
                 )
             lines.append("</g></g>")
         mean_x = x(mean)
@@ -110,15 +110,15 @@ def main() -> None:
             f"{mean_x:.1f},{center + 9} {mean_x - 9:.1f},{center}"
         )
         lines.append(
-            f'<polygon points="{points}" fill="#e8dcc0"><title>Mean: {mean:.1f}</title></polygon>'
+            f'<polygon points="{points}" fill="#141413"><title>Mean: {mean:.1f}</title></polygon>'
         )
         lines.append(
-            f'<text x="{mean_x + 14:.1f}" y="{center + 5}" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#e8dcc0">{mean:.1f}</text>'
+            f'<text x="{mean_x + 14:.1f}" y="{center + 5}" font-family="ui-monospace, monospace" font-size="12" font-weight="700" fill="#141413">{mean:.1f}</text>'
         )
 
     lines.extend(
         [
-            '<text x="445" y="378" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#a69987">Belief span in score points</text>',
+            '<text x="445" y="378" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#68665f">Belief span in score points</text>',
             "</svg>",
         ]
     )
