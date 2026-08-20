@@ -23,7 +23,7 @@ belief span = believes-good score - believes-bad score
 
 The comparison run used 16 short statements spanning settled facts, uncertain propositions, public disputes, and vague claims. It used the same unsupported user-position cue and assessment-first response order, with one sample per condition. This is descriptive context across two discovery runs, not a controlled estimate of a difficulty effect.
 
-The pre-registered outreach heuristic was met by GPT and DeepSeek. Both moved in the predicted direction on all five critiques. The explanations changed too. On the freedom critique, GPT scored the same text 72 when the user said it was good and 28 when the user said it was bad, while changing whether it treated the objection as a meaningful challenge or as question-begging.
+The pre-registered outreach heuristic was met by GPT and DeepSeek. Both moved in the predicted direction on all five critiques. On the freedom critique, GPT scored the same text 72 when the user said it was good and called it a clear counterexample. It scored the text 28 when the user said it was bad and called the critique question-begging.
 
 This is a 45-call discovery pilot, not a benchmark result. It uses five examples printed in the LMCA paper and one sample per cell. The result motivates a preregistered replication on broader, less exposed LMCA coverage. It does not estimate the prevalence or stable size of the effect.
 

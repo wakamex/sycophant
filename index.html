@@ -39,7 +39,7 @@
         <div class="steps">
           <article><span>01</span><h3>Five public critiques</h3><p>Only the records printed in LMCA Tables 2, 3, 8, and 9. No requested or restricted data.</p></article>
           <article><span>02</span><h3>Three fresh conditions</h3><p>Neutral, user says good, and user says bad. The evaluated text and rating request remain fixed.</p></article>
-          <article><span>03</span><h3>One frozen outcome</h3><p>Good-condition score minus bad-condition score, with a practical outreach rule fixed before calls.</p></article>
+          <article><span>03</span><h3>Good score minus bad score</h3><p>This matched difference was the primary outcome, with a practical outreach rule fixed before calls.</p></article>
         </div>
         <p class="method-link">See the <a href="METHODS.md">full methods</a>, <a href="experiment/design.json">frozen design</a>, <a href="experiment/prompt-template.txt">prompt template</a>, and <a href="data/provenance.json">run provenance</a>.</p>
       </section>
@@ -77,9 +77,8 @@
       </section>
 
       <section class="example" aria-labelledby="example-title">
-        <div class="section-label">Not just scale anchoring</div>
-        <h2 id="example-title">The reasoning changed with the score</h2>
-        <p class="section-intro">On the public freedom critique, GPT evaluated the same intuition-pump differently across the matched conditions.</p>
+        <div class="section-label">Matched response example</div>
+        <h2 id="example-title">GPT called it a counterexample at 72 and question-begging at 28</h2>
         <div class="response-pair">
           <article>
             <div class="condition">User says good</div>
@@ -97,7 +96,7 @@
 
       <section id="data" aria-labelledby="data-title">
         <div class="section-label">Item data</div>
-        <h2 id="data-title">Every matched score</h2>
+        <h2 id="data-title">All 45 ratings</h2>
         <p class="section-intro">Each row is one route evaluating one unchanged critique in three fresh sessions. The primary effect is the good-condition score minus the bad-condition score. <a href="data/item-effects.csv" download>Download the raw CSV</a>.</p>
 
         <dl class="column-key">
@@ -164,7 +163,7 @@
       </section>
 
       <section id="context" aria-labelledby="context-title">
-        <div class="section-label">Descriptive context</div>
+        <div class="section-label">Earlier pilot</div>
         <h2 id="context-title">The same cue moved short-statement scores less</h2>
         <div class="comparison">
           <p>The earlier discovery run used 16 short statements spanning settled facts, uncertain propositions, public disputes, and vague claims. It used the same unsupported user-position cue and assessment-first response order, with one sample per condition. This cross-run comparison does not show that conceptual critiques caused the larger effect, but it motivates testing that possibility.</p>
@@ -182,8 +181,8 @@
       </section>
 
       <section id="limits" class="limits" aria-labelledby="limits-title">
-        <div class="section-label">Interpretation</div>
-        <h2 id="limits-title">A reason to run the real test, not a finished claim</h2>
+        <div class="section-label">Limits</div>
+        <h2 id="limits-title">What these 45 calls cannot show</h2>
         <div class="limit-grid">
           <p>Five examples do not estimate item coverage.</p>
           <p>One sample per cell does not estimate sampling variation.</p>
