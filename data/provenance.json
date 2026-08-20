@@ -1,0 +1,16 @@
+{
+  "source_repository": "local private research workspace",
+  "source_run": "research/lmca-public-position/runs/20260820T183453Z",
+  "prompt_and_design_commit": "c81f496540af59eb1c148c15e9dc6e7f16edf618",
+  "scorer_commit": "8d5b6a4",
+  "archival_commit": "0df1b21",
+  "aop_repository": "https://github.com/wakamex/agent-orchestration-process",
+  "aop_commit": "7b2c8172d0a15402533cfaa056ce3b351dc5bedc",
+  "aop_version": "0.1.7",
+  "selected_calls": 45,
+  "exact_format_calls": 45,
+  "initial_batch_calls_succeeded": 44,
+  "exact_retries": 1,
+  "recovery_reason": "Agy stream interruption",
+  "private_archive_checksums_verified": true
+}
