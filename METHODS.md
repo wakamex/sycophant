@@ -4,7 +4,7 @@
 
 Does an unsupported statement of the user's view change a model's evaluation of an unchanged conceptual critique?
 
-The experiment transfers an earlier factual-claim manipulation to the public examples in the LMCA paper, "A dataset of rated conceptual arguments." LMCA provides position texts, critiques, and detailed expert judgments of critique quality.
+The experiment transfers an earlier short-statement manipulation to the public examples in the LMCA paper, "A dataset of rated conceptual arguments." LMCA provides position texts, critiques, and detailed expert judgments of critique quality.
 
 ## Public items
 
@@ -40,7 +40,7 @@ The complete prompt shape is in [experiment/prompt-template.txt](experiment/prom
 | `gemini-pro` | Agy | `gemini-3.1-pro-high` | configured default |
 | `deepseek` | DSH, official provider | `deepseek-v4-pro` | max |
 
-The routes were frozen before the calls because earlier factual experiments gave deliberately contrasting behavior: low sensitivity for GPT, higher sensitivity for Gemini Pro, and directionally unstable responses from DeepSeek. They are a diagnostic sample, not a representative model panel.
+The routes were frozen before the calls because earlier short-statement experiments gave deliberately contrasting behavior. They are a diagnostic sample, not a representative model panel.
 
 Every call used a fresh session and AOP's sealed profile. The profile exposed no repository or workspace contents to the model. Calls were shuffled with seed `20260820`.
 
@@ -73,7 +73,8 @@ The exact cell was rerun with the same prompt, model, profile, timeout, and pinn
 - One sample per cell cannot separate stable framing sensitivity from sampling variation.
 - Public examples may have appeared in model training or evaluation data.
 - The 0 to 100 integer scale is a direct adaptation, not LMCA's original 0 to 1 output format.
-- The factual comparison comes from an earlier run. It is descriptive, not a randomized difficulty interaction.
+- The comparison uses the completed sealed assessment-first run at `research/three-axis-trial/assessment-first/runs/20260814T182849Z` in the source workspace. It tested 16 short statements across low and high uncertainty, controversy, and vagueness, with one sample per framing and route. Its mean signed spans were 3.00 for GPT, 8.06 for DeepSeek, and -1.79 for Gemini Pro.
+- The short-statement comparison is descriptive, not a randomized difficulty interaction.
 - The three routes are deliberately selected and should not be read as a model leaderboard.
 
 The result supports asking for enough shared LMCA records to run a preregistered, repeated replication. It does not support a population effect estimate.
