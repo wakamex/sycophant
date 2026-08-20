@@ -21,6 +21,8 @@ No requested or restricted LMCA record is present. If access is granted later, i
 
 The source workspace contains downloaded PDFs, extracted paper text, website snapshots, and dataset archives from several projects. Their public availability does not create one uniform right to redistribute them. This repository links to the LMCA paper and identifies its public table entries instead.
 
+The research note for Pang et al. (2025) records citation metadata, links, license, and a short relevance summary. It does not redistribute the article text.
+
 ### Raw agent traces
 
 The source workspace records full agent requests, events, results, provider metadata, system instructions, run identifiers, and local execution paths. Those files are useful for private auditing but disclose much more operational information than is needed to evaluate this result. They also mix material governed by different provider terms.
