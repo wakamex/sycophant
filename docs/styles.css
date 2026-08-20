@@ -76,6 +76,20 @@ th, td { padding: 11px 8px; border-bottom: 1px solid var(--line); text-align: ri
 th:first-child, td:first-child { text-align: left; }
 th { color: var(--muted); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
 
+.column-key { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; margin: 38px 0 28px; border: 1px solid var(--line); background: var(--line); }
+.column-key div { padding: 18px; background: var(--panel); }
+.column-key dt { color: var(--rust); font-family: ui-monospace, monospace; font-size: 0.78rem; font-weight: 700; }
+.column-key dd { margin: 7px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.4; }
+.data-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.data-table { min-width: 900px; }
+.data-table th, .data-table td { padding: 9px 12px; }
+.data-table thead th { position: sticky; top: 0; background: var(--panel); }
+.data-table tbody th { width: 235px; color: var(--ink); font-size: 0.88rem; font-weight: 650; letter-spacing: 0; text-transform: none; vertical-align: top; }
+.data-table tbody th small { display: block; margin-top: 3px; color: var(--muted); font-size: 0.72rem; font-weight: 400; }
+.data-table .item-start > * { border-top: 2px solid var(--line); }
+.data-table tbody tr:first-child > * { border-top: 0; }
+.data-table .primary-effect { color: var(--teal); font-weight: 750; }
+
 .example { background: var(--ink); color: #f8f3e8; padding-inline: max(20px, calc((100vw - 1080px) / 2)) !important; width: 100% !important; }
 .example .section-label { color: #f0a785; }
 .example .section-intro, .example .caption { color: #b9c4c3; }
@@ -101,7 +115,7 @@ footer p { margin: 0; }
 @media (max-width: 760px) {
   nav { justify-content: flex-start; overflow-x: auto; margin-bottom: 68px; }
   .hero { padding-bottom: 64px; }
-  .metrics, .steps, .comparison, .response-pair, .limit-grid { grid-template-columns: 1fr; }
+  .metrics, .steps, .comparison, .response-pair, .limit-grid, .column-key { grid-template-columns: 1fr; }
   main section { padding-block: 64px; }
   .comparison { gap: 18px; }
   footer { flex-direction: column; }
