@@ -18,7 +18,7 @@ The paper prints five rated critiques from four positions:
 | `freedom_active_interference` | Table 8, Critique 1 |
 | `ethnic_mixing_autonomy` | Table 9, Critique 2 |
 
-The paper is available at [arXiv:2607.27499](https://arxiv.org/abs/2607.27499). This repository identifies the public records but does not copy the paper or any restricted LMCA data.
+The paper is available at [arXiv:2607.27499](https://arxiv.org/abs/2607.27499). This repository identifies the five examples printed in the paper but does not reproduce the paper itself.
 
 ## Conditions
 

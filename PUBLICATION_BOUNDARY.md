@@ -13,10 +13,6 @@ This focused repository contains the evidence needed to inspect the public pilot
 
 ## Not included
 
-### Restricted LMCA records
-
-No requested or restricted LMCA record is present. If access is granted later, its policy prohibits public sharing and requires care around model providers and training retention. Those records should remain in a private, access-controlled workspace.
-
 ### Third-party papers and datasets
 
 The source workspace contains downloaded PDFs, extracted paper text, website snapshots, and dataset archives from several projects. Their public availability does not create one uniform right to redistribute them. This repository links to the LMCA paper and identifies its public table entries instead.
