@@ -65,7 +65,7 @@ h3 { margin: 6px 0 10px; font-size: 1.1rem; }
 .detail { color: var(--muted); font-size: 0.85rem; }
 
 .chart { margin: 48px 0 30px; }
-.chart img { display: block; width: 100%; border: 1px solid var(--line); border-radius: 18px; }
+.chart object { display: block; width: 100%; aspect-ratio: 920 / 390; border: 1px solid var(--line); border-radius: 18px; }
 figcaption, .caption { margin-top: 10px; color: var(--muted); font-size: 0.86rem; }
 
 .comparison { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; margin-top: 64px; }
