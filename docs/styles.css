@@ -58,7 +58,7 @@ nav {
   padding-bottom: 14px;
   border-bottom: 1px solid var(--border);
   font-family: var(--mono);
-  font-size: 0.84rem;
+  font-size: 0.9rem;
 }
 
 nav a { color: var(--supporting); border-bottom-color: transparent; }
@@ -102,30 +102,23 @@ h1 {
 }
 
 main section {
-  display: grid;
-  grid-template-columns: minmax(150px, 0.22fr) minmax(0, 1fr);
-  column-gap: clamp(24px, 4vw, 64px);
   padding-top: 28px;
   padding-bottom: 30px;
   border-top: 1px solid var(--border);
 }
 
-main section > * { grid-column: 2; }
-
 .section-label {
-  grid-column: 1;
-  grid-row: 1 / span 20;
-  align-self: start;
+  margin-bottom: 8px;
   color: var(--accent);
   font-family: var(--mono);
-  font-size: 0.76rem;
+  font-size: 0.84rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 h2 {
   max-width: 920px;
-  margin: -4px 0 10px;
+  margin: 0 0 10px;
   color: var(--heading);
   font-size: clamp(1.55rem, 2.5vw, 2.25rem);
   font-weight: 500;
@@ -135,7 +128,7 @@ h2 {
 
 h3 { margin: 5px 0 7px; color: var(--heading); font-size: 1rem; font-weight: 550; }
 
-.section-intro { max-width: 860px; margin: 0; color: var(--supporting); font-size: 1rem; }
+.section-intro { max-width: 1000px; margin: 0; color: var(--supporting); font-size: 1rem; }
 
 .prompt-pair {
   display: flex;
@@ -186,7 +179,7 @@ h3 { margin: 5px 0 7px; color: var(--heading); font-size: 1rem; font-weight: 550
 .detail { color: var(--faint); font-family: var(--mono); font-size: 0.76rem; }
 
 .chart { margin: 22px 0 0; }
-.chart object { display: block; width: 100%; aspect-ratio: 920 / 390; border: 1px solid var(--border); background: #fffdf8; }
+.chart object { display: block; width: 100%; aspect-ratio: 920 / 390; border: 1px solid var(--border); background: var(--surface); }
 figcaption, .caption { margin-top: 8px; color: var(--supporting); font-size: 0.82rem; }
 
 .example { background: var(--surface); }
@@ -260,8 +253,7 @@ footer p { margin: 0; }
   .research-status { display: block; }
   .research-status span { display: block; margin-bottom: 5px; }
   h1 { font-size: clamp(2rem, 10vw, 2.65rem); }
-  main section { display: block; padding-top: 22px; padding-bottom: 24px; }
-  .section-label { display: block; margin-bottom: 8px; }
+  main section { padding-top: 22px; padding-bottom: 24px; }
   h2 { margin-top: 0; }
   .metrics, .steps, .response-pair, .limit-grid, .column-key, .comparison { grid-template-columns: 1fr; }
   .metrics article + article, .steps article + article, .response-pair article + article, .column-key div + div, .limit-grid p + p {
