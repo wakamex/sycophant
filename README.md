@@ -47,3 +47,13 @@ python3 scripts/build_figure.py
 ```
 
 The original calls used [Agent Orchestration Process](https://github.com/wakamex/agent-orchestration-process) v0.1.7 at commit `7b2c8172d0a15402533cfaa056ce3b351dc5bedc` with its sealed profile.
+
+## Publish the report
+
+The standalone report is deployed to `https://mihaicosma.com/lmca/` without adding it to the main site's navigation:
+
+```sh
+./deploy.sh
+```
+
+The deploy script rebuilds and verifies the derived result, packages only the public report files, and replaces the remote `/lmca` directory with rollback protection. It does not deploy the private research archive.
