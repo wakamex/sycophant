@@ -44,6 +44,7 @@ nav a:hover { color: var(--ink); }
 }
 
 h1 { max-width: 880px; margin: 14px 0 18px; font-family: Georgia, serif; font-size: clamp(2.6rem, 4.8vw, 4.6rem); font-weight: 500; letter-spacing: -0.04em; line-height: 1; }
+.tagline { margin: 0; color: #354548; font-family: Georgia, serif; font-size: clamp(1.25rem, 2vw, 1.65rem); }
 
 .prompt-pair { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 26px; }
 .prompt-pair code { padding: 11px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--ink); }
@@ -68,7 +69,6 @@ h3 { margin: 6px 0 10px; font-size: 1.1rem; }
 figcaption, .caption { margin-top: 10px; color: var(--muted); font-size: 0.86rem; }
 
 .comparison { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; margin-top: 64px; }
-.comparison h3 { font-family: Georgia, serif; font-size: 2rem; font-weight: 500; }
 .comparison p { color: var(--muted); }
 table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
 th, td { padding: 11px 8px; border-bottom: 1px solid var(--line); text-align: right; }
