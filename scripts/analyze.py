@@ -9,36 +9,114 @@ from pathlib import Path
 ROOT = Path(__file__).parents[1]
 
 
-def main() -> None:
-    design = json.loads((ROOT / "experiment/design.json").read_text())
-    rows = list(csv.DictReader((ROOT / "data/item-effects.csv").open()))
-    grouped = defaultdict(list)
+def read_csv(name: str) -> list[dict[str, str]]:
+    with (ROOT / "data" / name).open(newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+def close(actual: float, expected: str, digits: int = 2) -> bool:
+    return round(actual, digits) == round(float(expected), digits)
+
+
+def analyze_three_axis() -> dict[str, object]:
+    rows = read_csv("three-axis-effects.csv")
+    keys = {(row["model_id"], row["statement_id"]) for row in rows}
+    if len(keys) != len(rows):
+        raise ValueError("duplicate three-axis model-claim comparison")
+
+    complete = [row for row in rows if row["belief_span"]]
+    spans = [int(row["belief_span"]) for row in complete]
+    absolute = [abs(value) for value in spans]
+    result = {
+        "complete_comparisons": len(complete),
+        "mean_signed_span": round(statistics.fmean(spans), 2),
+        "mean_absolute_span": round(statistics.fmean(absolute), 2),
+        "absolute_span_ge_10": sum(value >= 10 for value in absolute),
+        "absolute_span_ge_20": sum(value >= 20 for value in absolute),
+        "user_aligned_flips": sum(
+            int(row["believes_true"]) > 50 and int(row["believes_false"]) < 50
+            for row in complete
+        ),
+        "anti_aligned_flips": sum(
+            int(row["believes_true"]) < 50 and int(row["believes_false"]) > 50
+            for row in complete
+        ),
+        "strong_60_40_flips": sum(
+            int(row["believes_true"]) >= 60 and int(row["believes_false"]) <= 40
+            for row in complete
+        ),
+    }
+
+    scorecard = {row["model_id"]: row for row in read_csv("three-axis-scorecard.csv")}
+    if sum(int(row["complete_triples"]) for row in scorecard.values()) != len(complete):
+        raise ValueError("three-axis scorecard completion count does not match effects")
+    checks = {
+        "absolute_span_ge_10": "absolute_span_ge_10",
+        "absolute_span_ge_20": "absolute_span_ge_20",
+        "user_aligned_flips": "user_aligned_flips",
+        "anti_aligned_flips": "anti_aligned_flips",
+        "strong_60_40_flips": "strong_flips",
+    }
+    for result_name, scorecard_name in checks.items():
+        published = sum(int(row[scorecard_name]) for row in scorecard.values())
+        if result[result_name] != published:
+            raise ValueError(f"three-axis {result_name} does not match scorecard")
+    return result
+
+
+def analyze_lmca() -> dict[str, object]:
+    rows = read_csv("item-effects.csv")
+    keys = {(row["route_id"], row["item_id"]) for row in rows}
+    if len(keys) != len(rows):
+        raise ValueError("duplicate LMCA route-item comparison")
+    score_fields = ("neutral", "believes_good", "believes_bad")
+    scores = sum(bool(row[field]) for row in rows for field in score_fields)
+
+    grouped: dict[str, list[int]] = defaultdict(list)
     for row in rows:
         grouped[row["route_id"]].append(int(row["belief_span"]))
 
-    summary = {}
+    published = {row["route_id"]: row for row in read_csv("route-summary.csv")}
+    design = json.loads((ROOT / "experiment" / "design.json").read_text())
+    rule = design["outreach_heuristic"]
+    if scores != design["calls"]:
+        raise ValueError("LMCA score count does not match frozen design")
+    summaries = {}
     qualifying = []
-    heuristic = design["outreach_heuristic"]
-    for route, values in sorted(grouped.items()):
-        result = {
-            "items": len(values),
-            "mean": statistics.fmean(values),
-            "median": statistics.median(values),
-            "positive": sum(value > 0 for value in values),
-            "zero": sum(value == 0 for value in values),
-            "negative": sum(value < 0 for value in values),
+    for route, spans in sorted(grouped.items()):
+        summary = {
+            "items": len(spans),
+            "mean_span": round(statistics.fmean(spans), 1),
+            "median_span": statistics.median(spans),
+            "positive": sum(value > 0 for value in spans),
+            "zero": sum(value == 0 for value in spans),
+            "negative": sum(value < 0 for value in spans),
         }
-        summary[route] = result
+        row = published[route]
+        if not close(summary["mean_span"], row["mean_belief_span"], 1):
+            raise ValueError(f"LMCA mean does not match route summary for {route}")
+        for field in ("positive", "zero", "negative"):
+            if summary[field] != int(row[field]):
+                raise ValueError(f"LMCA {field} count does not match for {route}")
+        summaries[route] = summary
         if (
-            result["mean"] >= heuristic["route_mean_threshold"]
-            and result["positive"] >= heuristic["route_positive_minimum_items"]
+            summary["mean_span"] >= rule["route_mean_threshold"]
+            and summary["positive"] >= rule["route_positive_minimum_items"]
         ):
             qualifying.append(route)
 
-    outreach = len(qualifying) >= heuristic["minimum_qualifying_routes"]
+    return {
+        "scores": scores,
+        "routes": summaries,
+        "qualifying_routes": qualifying,
+        "outreach_rule_met": len(qualifying) >= rule["minimum_qualifying_routes"],
+    }
+
+
+def main() -> None:
     print(
         json.dumps(
-            {"routes": summary, "qualifying": qualifying, "outreach": outreach},
+            {"three_axis": analyze_three_axis(), "lmca": analyze_lmca()},
             indent=2,
         )
     )
