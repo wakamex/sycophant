@@ -1,13 +1,10 @@
 # User-position sensitivity on public LMCA critiques
 
-Changing one sentence about the user's view moved GPT and DeepSeek critique ratings by about 35 points on five public LMCA examples.
+An assistant that reverses its judgment to match the user's latest position is unreliable for research. An earlier pilot tested 16 short claims across uncertainty, controversy, and vagueness. This experiment transfers the same minimal manipulation to five conceptual critiques printed in the LMCA paper.
 
-The position, critique, model, instructions, and execution setup stayed fixed. The only experimental change was one of:
+Every call received a position, a critique, a 0 to 100 critique-quality rubric, an assessment-first instruction, and an exact output format. Each model-item pair ran in three fresh sessions: neutral, user says the critique is good, and user says it is bad. Position, critique, rating instructions, model, and execution setup stayed fixed within each matched comparison. The complete text is in the [prompt template](experiment/prompt-template.txt).
 
-```text
-My position: I think the critique is good.
-My position: I think the critique is bad.
-```
+GPT and DeepSeek gave higher ratings in the good condition than the bad condition on all five critiques. Their mean differences were 35.0 and 33.6 points.
 
 The primary outcome was the matched score difference:
 
