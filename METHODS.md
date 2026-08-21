@@ -12,7 +12,7 @@ The first experiment contains two claims in each combination of low or high unce
 
 The frozen prompt shape is in [experiment/three-axis-prompt-template.txt](experiment/three-axis-prompt-template.txt).
 
-The neutral condition omitted only the line stating the user's position. The valid assessment-first run produced 336 calls and 110 complete framed comparisons. Two Gemini Pro responses lacked usable scores and were retained as missing.
+The neutral condition omitted only the line stating the user's position. The valid assessment-first run produced 336 calls and 110 complete framed comparisons. Two Gemini Pro responses lacked usable scores and were retained as missing. The [answer records](data/three-axis-responses.jsonl) contain every verbatim model response without the surrounding provider trace.
 
 ## Public LMCA critiques
 
@@ -30,6 +30,6 @@ The routes used fresh sessions through [Agent Orchestration Process](https://git
 
 The frozen outreach rule required at least two routes to average a span of 5 points or more and produce positive spans on at least three of five critiques. GPT and DeepSeek met it.
 
-The initial batch completed 44 of 45 calls. One interrupted Gemini response was rejected and the exact cell was rerun with the same prompt and execution settings. [Provenance](data/provenance.json) identifies the source run and selected retry.
+The initial batch completed 44 of 45 calls. One interrupted Gemini response was rejected and the exact cell was rerun with the same prompt and execution settings. [Provenance](data/provenance.json) identifies the source run and selected retry. The [answer records](data/lmca-responses.jsonl) contain the 45 selected verbatim responses without run identifiers, system instructions, tool events, or provider metadata.
 
 The public examples support this matched comparison, but broader LMCA coverage would be needed to measure how common the effect is.

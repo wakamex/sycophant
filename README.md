@@ -17,6 +17,7 @@ Across 110 complete comparisons, the mean absolute span was 6.18 points. Twenty-
 - [Model-level scorecard](data/three-axis-scorecard.csv)
 - [Axis summaries](data/three-axis-axes.csv)
 - [All 112 model-claim comparisons](data/three-axis-effects.csv)
+- [All 336 model answers](data/three-axis-responses.jsonl)
 
 ## Public LMCA pilot
 
@@ -31,6 +32,7 @@ GPT 5.6 Sol, DeepSeek V4 Pro, and Gemini 3.1 Pro High rated five conceptual crit
 These models were easier to sway on the LMCA critiques than on the initial factual claims. Mean signed movement rose from 3.00 to 35.0 points for GPT, from 8.06 to 33.6 for DeepSeek, and from -1.79 to 11.0 for Gemini Pro.
 
 - [All 45 scores and item-level effects](data/item-effects.csv)
+- [All 45 model answers](data/lmca-responses.jsonl)
 - [Route summaries](data/route-summary.csv)
 - [Frozen design](experiment/design.json)
 - [Prompt template](experiment/prompt-template.txt)

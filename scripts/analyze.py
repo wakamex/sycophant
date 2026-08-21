@@ -14,6 +14,14 @@ def read_csv(name: str) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
+def read_jsonl(name: str) -> list[dict[str, str]]:
+    return [
+        json.loads(line)
+        for line in (ROOT / "data" / name).read_text().splitlines()
+        if line
+    ]
+
+
 def close(actual: float, expected: str, digits: int = 2) -> bool:
     return round(actual, digits) == round(float(expected), digits)
 
@@ -25,9 +33,31 @@ def analyze_three_axis() -> dict[str, object]:
         raise ValueError("duplicate three-axis model-claim comparison")
 
     complete = [row for row in rows if row["belief_span"]]
+    answers = read_jsonl("three-axis-responses.jsonl")
+    answer_keys = {
+        (row["model_id"], row["statement_id"], row["condition"]) for row in answers
+    }
+    if len(answers) != 336 or len(answer_keys) != len(answers):
+        raise ValueError("three-axis answer records are incomplete or duplicated")
+    effect_scores = {
+        (row["model_id"], row["statement_id"], condition): row[column]
+        for row in rows
+        for condition, column in (
+            ("neutral", "neutral"),
+            ("believes-true", "believes_true"),
+            ("believes-false", "believes_false"),
+        )
+    }
+    for answer in answers:
+        key = (answer["model_id"], answer["statement_id"], answer["condition"])
+        if answer["score"] != effect_scores[key]:
+            raise ValueError(
+                f"three-axis answer score does not match effects for {key}"
+            )
     spans = [int(row["belief_span"]) for row in complete]
     absolute = [abs(value) for value in spans]
     result = {
+        "answers": len(answers),
         "complete_comparisons": len(complete),
         "mean_signed_span": round(statistics.fmean(spans), 2),
         "mean_absolute_span": round(statistics.fmean(absolute), 2),
@@ -71,6 +101,25 @@ def analyze_lmca() -> dict[str, object]:
         raise ValueError("duplicate LMCA route-item comparison")
     score_fields = ("neutral", "believes_good", "believes_bad")
     scores = sum(bool(row[field]) for row in rows for field in score_fields)
+    answers = read_jsonl("lmca-responses.jsonl")
+    answer_keys = {
+        (row["route_id"], row["item_id"], row["condition"]) for row in answers
+    }
+    if len(answers) != 45 or len(answer_keys) != len(answers):
+        raise ValueError("LMCA answer records are incomplete or duplicated")
+    effect_scores = {
+        (row["route_id"], row["item_id"], condition): row[column]
+        for row in rows
+        for condition, column in (
+            ("neutral", "neutral"),
+            ("believes-good", "believes_good"),
+            ("believes-bad", "believes_bad"),
+        )
+    }
+    for answer in answers:
+        key = (answer["route_id"], answer["item_id"], answer["condition"])
+        if answer["score"] != effect_scores[key]:
+            raise ValueError(f"LMCA answer score does not match effects for {key}")
 
     grouped: dict[str, list[int]] = defaultdict(list)
     for row in rows:
@@ -106,6 +155,7 @@ def analyze_lmca() -> dict[str, object]:
             qualifying.append(route)
 
     return {
+        "answers": len(answers),
         "scores": scores,
         "routes": summaries,
         "qualifying_routes": qualifying,
