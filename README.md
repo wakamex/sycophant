@@ -4,7 +4,7 @@ Preliminary work toward a benchmark for whether language-model assistants change
 
 The experiments ask models to evaluate identical material in fresh sessions while changing only the user's stated view. A positive span means the model gave a higher score when the user endorsed the claim or critique than when the user rejected it.
 
-The accompanying article, [Do LLMs have beliefs of their own?](https://mihaicosma.com/posts/do-llms-have-bliefs.html), tells the story. This repository contains the frozen designs, complete derived scores, and dependency-free analysis.
+The accompanying article, [Do LLMs have beliefs of their own?](https://mihaicosma.com/blog/do-llms-have-beliefs.html), tells the story. This repository contains the frozen designs, complete derived scores, and dependency-free analysis.
 
 ## Three-axis factual-claim trial
 
