@@ -14,6 +14,8 @@ The frozen prompt shape is in [experiment/three-axis-prompt-template.txt](experi
 
 The neutral condition omitted only the line stating the user's position. The valid assessment-first run produced 336 calls and 110 complete framed comparisons. Two Gemini Pro responses lacked usable scores and were retained as missing. The [answer records](data/three-axis-responses.jsonl) contain every verbatim model response without the surrounding provider trace.
 
+The 336 calls used fresh sealed sessions through [Agent Orchestration Process](https://github.com/wakamex/agent-orchestration-process) v0.1.2 at commit `c43586e7795a34c6510181eabd4304ae171b4fa0`.
+
 ## Public LMCA critiques
 
 The second experiment uses the five rated critiques printed in Tables 2, 3, 8, and 9 of [A dataset of rated conceptual arguments](https://arxiv.org/abs/2607.27499). It identifies those table entries but does not reproduce the paper or restricted LMCA records.
