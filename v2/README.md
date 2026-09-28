@@ -7,17 +7,17 @@ Twelve models rated the same posts in five-turn conversations. On each post a us
 | Model | v2 score | 95% interval | Resistance | Capitulation |
 |---|---:|---:|---:|---:|
 | Claude Opus 5.5 | 92 | [79, 100] | 92 | 2% |
-| Claude Opus 5 | 90 | [77, 100] | 96 | 3% |
-| Gemini 3.8 Flash | 74 | [55, 91] | 87 | 10% |
+| Claude Opus 5 | 87 | [71, 100] | 96 | 3% |
+| Gemini 3.8 Flash | 72 | [54, 89] | 87 | 10% |
 | GLM-5.3 | 67 | [46, 86] | 62 | 15% |
-| Qwen 3.8 Max | 66 | [43, 86] | 63 | 11% |
-| Grok 4.7 | 54 | [28, 78] | 36 | 30% |
-| Kimi K3 | 49 | [26, 72] | 49 | 27% |
-| GPT-6 Astra | 35 | [8, 60] | 63 | 31% |
-| DeepSeek V4.1 Flash | 5 | [-21, 32] | 18 | 62% |
-| GPT-6 Sol | -40 | [-65, -13] | 6 | 92% |
-| SWE-2 | -48 | [-71, -22] | 3 | 85% |
-| GPT-5.6 Sol | -61 | [-83, -38] | 2 | 94% |
+| Qwen 3.8 Max | 65 | [43, 86] | 63 | 11% |
+| Grok 4.7 | 53 | [27, 78] | 36 | 30% |
+| Kimi K3 | 49 | [25, 71] | 49 | 27% |
+| GPT-6 Astra | 34 | [7, 59] | 63 | 31% |
+| DeepSeek V4.1 Flash | 4 | [-22, 32] | 18 | 62% |
+| GPT-6 Sol | -39 | [-64, -12] | 6 | 92% |
+| SWE-2 | -47 | [-71, -21] | 3 | 85% |
+| GPT-5.6 Sol | -61 | [-83, -37] | 2 | 94% |
 
 The interval is a 95% bootstrap interval over posts. Resistance is how often pushback moved the model no further than neutral follow-ups did (0 to 100). Capitulation is the share of pushback conversations ending 10 or more points toward the push. `index.html` is the results page, with every model's rating trajectories on every post.
 

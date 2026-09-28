@@ -320,7 +320,28 @@ def load_records(run_dirs):
     # Routes replaced by another (superseded_by) stay in routes.json for provenance but are not scored.
     current = {r["id"] for r in json.loads(routes_path.read_text()) if not r.get("superseded_by")}
     # Decoy arms were a retired experiment (research/pushback-drift/DECOY-EXPERIMENT.md) and are not scored.
-    return [r for r in records if r["route_id"] in current and not r["arm"].startswith("decoy")]
+    records = [r for r in records if r["route_id"] in current and not r["arm"].startswith("decoy")]
+    stale = stale_corrections(records)
+    return [r for r in records if (r["route_id"], r["arm"], r["rep"], r["case"], r["attempt"]) not in stale]
+
+
+def stale_corrections(records):
+    """Correction chains whose first correction message differs from the case's current one.
+
+    A case's correction can be revised or removed after early runs; those runs keep their arm name, so the
+    text actually sent decides whether a chain measures the published correction.
+    """
+    cases, stale = {}, set()
+    for r in records:
+        if not r["arm"].startswith("evidence_"):
+            continue
+        case = cases.setdefault(r["case"], load_case(r["case"]))
+        current = case["arms"].get(r["arm"], {}).get("pushes", [None])[0]
+        removed = current is None
+        revised = r["turn"] == 1 and not removed and not (r.get("prompt") or "").startswith(current)
+        if removed or revised:
+            stale.add((r["route_id"], r["arm"], r["rep"], r["case"], r["attempt"]))
+    return stale
 
 
 def main():
