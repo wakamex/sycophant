@@ -1,57 +1,15 @@
 # Sycophant
 
-Preliminary work toward a benchmark for whether language-model assistants change their judgments to match a user's unsupported position.
+Benchmarks for whether language-model assistants change their judgments to please a user rather than in response to evidence.
 
-The experiments ask models to evaluate identical material in fresh sessions while changing only the user's stated view. A positive span means the model gave a higher score when the user endorsed the claim or critique than when the user rejected it.
+## [v2: Sycophancy Bench v2](v2/)
 
-The accompanying article, [Do LLMs have beliefs of their own?](https://mihaicosma.com/blog/do-llms-have-beliefs.html), tells the story. This repository contains the frozen designs, complete derived scores, and dependency-free analysis.
+Twelve models rated the same posts in five-turn conversations, once under evidence-free pushback and once with a real correction published after their training cutoffs. The v2 score, from -100 to 100, compares how far the correction moved each model's rating with how far pushback did. Claude Opus 5.5 and Opus 5 update on evidence and hold under pressure; GPT-6 Sol, SWE-2 and GPT-5.6 Sol move further for pushback than for evidence. The folder has every post, fact sheet, correction and conversation, the scorer, and the results page.
 
-## Three-axis factual-claim trial
+## [v1: user-belief framing](v1/)
 
-Seven model routes rated 16 claims under neutral, user-believes-true, and user-believes-false framings. The claims crossed uncertainty, controversy, and vagueness.
-
-Across 110 complete comparisons, the mean absolute span was 6.18 points. Twenty-nine comparisons moved at least 10 points and 13 moved at least 20. Six crossed 50 in the user-aligned direction, including five that met the stronger 60/40 definition. None crossed 50 in the opposite direction.
-
-- [Claim matrix](experiment/three-axis-statements.json)
-- [Full scorecard](data/three-axis-scorecard.md)
-- [Model-level scorecard](data/three-axis-scorecard.csv)
-- [Axis summaries](data/three-axis-axes.csv)
-- [All 112 model-claim comparisons](data/three-axis-effects.csv)
-- [All 336 model answers](data/three-axis-responses.jsonl)
-
-## Public LMCA pilot
-
-GPT 5.6 Sol, DeepSeek V4 Pro, and Gemini 3.1 Pro High rated five conceptual critiques printed in the public LMCA paper. Each critique appeared under neutral, user-says-good, and user-says-bad framings, producing 45 scores.
-
-| Model route | Mean span | Median | Positive / zero / negative |
-|---|---:|---:|---:|
-| GPT 5.6 Sol | 35.0 | 36 | 5 / 0 / 0 |
-| DeepSeek V4 Pro | 33.6 | 22 | 5 / 0 / 0 |
-| Gemini 3.1 Pro High | 11.0 | 0 | 2 / 2 / 1 |
-
-These models were easier to sway on the LMCA critiques than on the initial factual claims. Mean signed movement rose from 3.00 to 35.0 points for GPT, from 8.06 to 33.6 for DeepSeek, and from -1.79 to 11.0 for Gemini Pro.
-
-- [All 45 scores and item-level effects](data/item-effects.csv)
-- [All 45 model answers](data/lmca-responses.jsonl)
-- [Route summaries](data/route-summary.csv)
-- [Frozen design](experiment/design.json)
-- [Prompt template](experiment/prompt-template.txt)
-- [Methods](METHODS.md)
-
-The pilot uses only the five critiques printed in the LMCA paper. It does not include requested or restricted LMCA records.
-
-## Verify the results
-
-Python 3.11 or newer is sufficient. There are no third-party dependencies.
-
-```sh
-python3 scripts/analyze.py
-```
-
-The script recomputes both headline summaries and checks them against the committed tables.
+The first experiments: seven models rated 16 factual claims, and three models rated five critiques from the public LMCA paper, with only the user's stated view changing between fresh sessions. The accompanying article is [Do LLMs have beliefs of their own?](https://mihaicosma.com/blog/do-llms-have-beliefs.html)
 
 ## Contributing
 
-Contributions that improve the experimental design, add independently sourced claims, or make the analysis easier to audit are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting data or a new experiment.
-
-Licensed under the [EUPL 1.2](LICENSE).
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting data or a new experiment. Licensed under the [EUPL 1.2](LICENSE).

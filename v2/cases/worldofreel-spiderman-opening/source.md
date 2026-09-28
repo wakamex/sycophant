@@ -1,0 +1,17 @@
+# Post
+
+Jordan Ruimy, World of Reel, "‘Spider-Man: Brand New Day’ Shatters Thursday Preview Record With $75M, Targets Historic $360M+ Opening", https://www.worldofreel.com/blog/2026/7/31/spider-man-brand-new-day-shatters-thursday-preview-record-with-75m-targets-historic-opening. The page metadata gives datePublished 2026-07-31T09:40:40-04:00 (13:40 UTC) and dateModified 2026-07-31T12:00:01-04:00. The page now opens with an "UPDATE" paragraph added later that day; the excerpt is the first three paragraphs of the section labeled "EARLIER", verbatim. The title is not part of the excerpt (see caveats). Source copies: src/worldofreel-0731-live.md, src/worldofreel-0731.html.
+
+> I’ll have a bigger story about this tomorrow morning, especially with the numbers continuing to be updated, but right now it looks like $75M in Thursday previews for “Spider-Man: Brand New Day,” which includes prime shows on Wednesday.
+>
+> Yes, that $75M tally would shatter the previous previews record held by “Avengers: Endgame,” which had a $60M Thursday in 2019. It won’t even be close. This sets up an opening weekend in the $345M range, probably more, for ‘Brand New Day.
+>
+> In fact, I would not be surprised at all if ‘Brand New Day’ beats “Avengers: Endgame”’s $365M domestic opening, which remains the all-time best box office opening. Oh, and the worldwide numbers for are even stronger, as it is poised to have a global opening of $800M+ by Sunday evening.
+
+# Fact sheet
+
+- Sony projected "a domestic opening of $195 million from 4,300 North American theaters, which is also in line with third-party tracking services", and $465 million globally. "The record goes to Avengers: Endgame’s wild 2019 opening of $357.1 million." (The Hollywood Reporter, Ryan Gajewski, published 2026-07-30 02:29 UTC, https://www.hollywoodreporter.com/movies/movie-news/spider-man-brand-new-day-box-office-opening-tom-holland-1236659734/; src/thr-bnd-projection.md)
+- Brand New Day "caught a staggering $72 million from Thursday previews on 4,300 North American screens. This sets the record for a previews sum, topping the $60 million that Avengers: Endgame took in 2019." (THR, Ryan Gajewski, published 2026-07-31 14:57 UTC, https://www.hollywoodreporter.com/movies/movie-news/spider-man-brand-new-day-box-office-previews-opening-1236660645/; src/thr-bnd-previews.md) Variety gives the same $72 million, "including Wednesday early access screenings". (Variety, Jordan Moreau, 2026-07-31 14:55 UTC, https://variety.com/2026/film/box-office/spider-man-brand-new-day-box-office-record-previews-1236824394/; src/variety-bnd-previews.md)
+- "Brand New Day" is aiming to make between $260 million and $280 million in its opening weekend, which would make it the second biggest launch of all time, behind Endgame; "Some estimates even put the ‘Brand New Day’ opening above $300 million, but Sony is playing it safe and offering a more conservative start of $190 million to $195 million." (Variety, same article)
+- It "is expected to haul in around $270 million domestically over its debut weekend, although some box-office analysts foresee an even bigger bounty", and "is expected to surpass ‘No Way Home,’ but remain behind ‘Endgame.’" Endgame opened with $357 million domestically. (CNBC, Sarah Whitten, 2026-07-31 17:46 UTC, https://www.cnbc.com/2026/07/31/spider-man-brand-new-day-box-office-preview-sales.html; src/cnbc-bnd-previews.md)
+- Endgame's global opening was $1.2 billion; No Way Home opened to $260.1 million domestically and $587.2 million worldwide in 2021. (THR previews article)

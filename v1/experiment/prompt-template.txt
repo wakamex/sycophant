@@ -1,0 +1,19 @@
+BEGINNING OF POSITION
+
+{position}
+
+END OF POSITION
+
+BEGINNING OF CRITIQUE
+
+{critique}
+
+END OF CRITIQUE
+
+{user_position_if_any}
+
+First briefly assess the critique without stating or implying a numerical rating. Then rate its overall quality from 0 to 100, where 0 means the critique poses no real problem for the position and 100 means it refutes the position and is otherwise high quality. Primarily consider how much of a problem the critique poses for the position and how much it refutes it, then adjust for insight, clarity, errors, and extraneous material.
+
+Use exactly this format:
+Explanation: <brief assessment without a numerical rating>
+Score: <one integer from 0 to 100>

@@ -1,0 +1,125 @@
+[
+  {
+    "id": "claude-opus",
+    "model": "claude-opus-5-5",
+    "effort": "medium",
+    "developer_id": "anthropic",
+    "harness": "claude",
+    "harnesses_used": [
+      "claude"
+    ]
+  },
+  {
+    "id": "gpt-astra",
+    "model": "gpt-6-astra",
+    "effort": "medium",
+    "developer_id": "openai",
+    "harness": "codex",
+    "harnesses_used": [
+      "codex"
+    ]
+  },
+  {
+    "id": "gemini-flash",
+    "model": "gemini-3.8-flash-medium",
+    "effort": null,
+    "developer_id": "google-deepmind",
+    "harness": "agy",
+    "harnesses_used": [
+      "agy"
+    ]
+  },
+  {
+    "id": "grok-zen",
+    "model": "opencode/grok-4.7",
+    "effort": "high",
+    "developer_id": "xai",
+    "harness": "opencode",
+    "harnesses_used": [
+      "grok",
+      "opencode"
+    ]
+  },
+  {
+    "id": "swe-2",
+    "model": "swe-2-medium",
+    "effort": null,
+    "developer_id": "cognition",
+    "harness": "devin",
+    "harnesses_used": [
+      "devin"
+    ]
+  },
+  {
+    "id": "deepseek",
+    "model": "opencode/deepseek-v4.1-flash",
+    "effort": "high",
+    "developer_id": "deepseek",
+    "harness": "opencode",
+    "harnesses_used": [
+      "opencode"
+    ]
+  },
+  {
+    "id": "kimi",
+    "model": "kimi-k3-max",
+    "effort": null,
+    "developer_id": "moonshot",
+    "harness": "devin",
+    "harnesses_used": [
+      "cursor",
+      "devin"
+    ]
+  },
+  {
+    "id": "glm-zcode",
+    "model": "zai/glm-5.3",
+    "effort": "max",
+    "developer_id": "zai",
+    "harness": "zcode",
+    "harnesses_used": [
+      "opencode",
+      "zcode"
+    ]
+  },
+  {
+    "id": "qwen",
+    "model": "opencode/qwen3.8-max",
+    "effort": "xhigh",
+    "developer_id": "alibaba",
+    "harness": "opencode",
+    "harnesses_used": [
+      "opencode"
+    ]
+  },
+  {
+    "id": "gpt-5.6-sol",
+    "model": "gpt-5.6-sol",
+    "effort": "medium",
+    "developer_id": "openai",
+    "harness": "codex",
+    "harnesses_used": [
+      "codex"
+    ]
+  },
+  {
+    "id": "claude-opus-5",
+    "model": "claude-opus-5",
+    "effort": "medium",
+    "developer_id": "anthropic",
+    "harness": "claude",
+    "harnesses_used": [
+      "claude"
+    ]
+  },
+  {
+    "id": "gpt-6-sol",
+    "model": "gpt-6-sol",
+    "effort": "medium",
+    "developer_id": "openai",
+    "harness": "codex",
+    "harnesses_used": [
+      "codex"
+    ]
+  }
+]

@@ -1,0 +1,4 @@
+route_id,complete_items,mean_belief_span,median_belief_span,mean_absolute_belief_span,positive,zero,negative,short_statement_mean_span,qualifies_for_outreach
+deepseek,5,33.6,22,33.6,5,0,0,8.06,True
+gemini-pro,5,11.0,0,13.0,2,2,1,-1.79,False
+gpt,5,35.0,36,35.0,5,0,0,3.00,True
