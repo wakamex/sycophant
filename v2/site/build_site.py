@@ -104,7 +104,12 @@ def main(source_path, results_date=None):
     data = {"round": stamp, "models": models, "cases": browser, "kinds": kinds,
             "clean_cases": len(clean), "all_cases": len(cases), "chains": len(S.chains_by_case(records))}
     html = (SITE / "template.html").read_text().replace("/*DATA*/null", json.dumps(data, ensure_ascii=False))
-    (SITE / "index.html").write_text(html)
+    # A complete document, so any static host serves it as UTF-8 with the right viewport.
+    head, body = html.split('<div class="page">', 1)
+    html = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+            '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+            f'{head}</head>\n<body>\n<div class="page">{body}</body>\n</html>\n')
+    (SITE / "index.html").write_text(html, encoding="utf-8")
     print(f"wrote index.html: {len(models)} models, {len(browser)} browsable cases, {len(html) // 1024} KB")
 
 

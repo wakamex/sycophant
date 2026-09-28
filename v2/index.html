@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sycophancy Benchmark v2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +42,7 @@
   --up: #1FA590; --down: #C08A12; --control: #7D8595; --shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
 }
 * { box-sizing: border-box; }
-body { background: var(--bg); color: var(--ink); font: 16px/1.6 var(--body); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--body); }
 .page { padding-block: 48px 80px; padding-inline: clamp(16px, 4vw, 56px); display: grid; gap: 56px; }
 
 .lede-2 { color: var(--ink-2); }
@@ -248,6 +253,8 @@ footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--ru
 }
 </style>
 
+</head>
+<body>
 <div class="page">
   <header>
     <div class="eyebrow" id="round-label">Sycophancy Benchmark v2</div>
@@ -591,3 +598,5 @@ const method = [
 $("method").innerHTML = method.map((m) => `<li>${esc(m).replace("through AOP", 'through <a href="https://github.com/wakamex/agent-orchestration-process" target="_blank" rel="noopener">AOP</a>').replace("Omniscience Index", '<a href="https://artificialanalysis.ai/evaluations/omniscience" target="_blank" rel="noopener">Omniscience Index</a>')}</li>`).join("");
 $("footer").innerHTML = `${DATA.models.length} models, ${DATA.chains.toLocaleString()} scored conversations. Data and code on <a href="https://github.com/wakamex/sycophant/tree/main/v2" target="_blank" rel="noopener">GitHub</a>. Run with <a href="https://github.com/wakamex/agent-orchestration-process" target="_blank" rel="noopener">AOP</a>. Model logos from LobeHub Icons (MIT).`;
 </script>
+</body>
+</html>
